@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #838282;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            color: rgb(248, 236, 72);
+            font-size: 30px;
+        }
+        .logo span {
+            color: #ec984a;
+        }
+        .menu-bar {
+            background: #333;
+            color: white;
+            padding: 10px;
+            display: flex;           
+            align-items: center; 
+            justify-content: space-between; /* Aligns logo and menu items */
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 1000; 
+        }
+        .menu-bar h1 {
+            margin: 0; /* Remove margin to align properly */
+        }
+        .menu-bar a {
+            color: rgb(221, 110, 19);
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+        .menu-bar a:hover {
+            background: #575757;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 75px auto;
+            background: #9c9b9b;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 93%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #050505;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #e79909;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-bar">
+        <h1 class="logo">ARIES<span>TOCRAT</span></h1>
+        <div>
+            <a href="file:///C:/Users/Jhaira/Documents/2nd%20year/dbms%20finals/menu.html">MENU</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">EVENTS</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 id="form-title">Login</h2>
+        <form id="form" action="file:///C:/Users/Jhaira/Documents/2nd%20year/dbms%20finals/front.html" method="POST">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div class="toggle-link">
+            <p>Don't have an account? <a href="#" id="toggle-form">Register</a></p>
+        </div>
+    </div>
+
+    <div class="container" id="registration-form" style="display: none;">
+        <h2>Register</h2>
+        <form action="file:///C:/Users/Jhaira/Documents/2nd%20year/dbms%20finals/front.html" method="POST">
+            <input type="text" id="reg-username" name="username" placeholder="Username" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="reg-password" name="password" placeholder="Password" required>
+            <input type="submit" value="Register">
+        </form>
+        <div class="toggle-link">
+            <p>Already have an account? <a href="#" id="toggle-login">Login</a></p>
+        </div>
+    </div>
+    
+
+    <script>
+        const toggleForm = document.getElementById('toggle-form');
+        const toggleLogin = document.getElementById('toggle-login');
+        const loginForm = document.getElementById('form');
+        const registrationForm = document.getElementById('registration-form');
+        const formTitle = document.getElementById('form-title');
+
+        toggleForm.addEventListener('click', function (e) {
+            e.preventDefault();
+            loginForm.style.display = 'none';
+            registrationForm.style.display = 'block';
+            formTitle.textContent = 'Register';
+        });
+
+        toggleLogin.addEventListener('click', function (e) {
+            e.preventDefault();
+            registrationForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            formTitle.textContent = 'Login';
+        });
+    </script>
+
+</body>
+</html>
